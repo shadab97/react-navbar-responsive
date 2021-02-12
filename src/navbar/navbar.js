@@ -3,12 +3,6 @@ import menu from '../menu.png';
 import closem from '../close-window.png';
 function Navbar(props) {
     const [isopen, setisopen] = useState(false);
-    function checking_isopen_state() {
-        if (isopen === false) {
-            return true;
-        }
-        return false;
-    }
 
     const { color, NavbarItems } = props;
     return (
@@ -18,7 +12,7 @@ function Navbar(props) {
                 {NavbarItems.map(items => <div className="nav_item" key={items}><a href={items + '.html'}>{items}</a></div>)}
             </div>
             <div className="mobile_menu">
-                <img src={!isopen ? menu : closem} alt="" onClick={() => setisopen(checking_isopen_state())} />
+                <img src={!isopen ? menu : closem} alt="" onClick={() => setisopen(!isopen)} />
             </div>
         </nav>
     );
